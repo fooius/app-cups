@@ -1,3 +1,5 @@
 #!/bin/sh
 
-tail -F /var/null
+
+/usr/sbin/avahi-daemon -D
+/usr/sbin/cupsd -f

@@ -24,9 +24,10 @@ RUN apt-get -y update && \
       hp-ppd \
       hplip \
       smbclient \
-      avahi-daemon
-
-RUN apt-get -y install joe vim
+      usbutils \
+      avahi-daemon && \
+      apt-get clean && \
+      rm -rf /var/lib/apt/lists/*
 
 RUN useradd \
 	--groups=sudo,lp,lpadmin \
@@ -40,6 +41,11 @@ COPY deb/pcs-3.17.0.0-1.amd64.deb /
 COPY deb/tmx-cups-backend-1.2.4.0-1.amd64.deb /
 COPY deb/tmx-cups_1.2.2-1_amd64.deb /
 COPY ppd /ppd
+COPY printers.conf /etc/cups/
+COPY TM-T88V.ppd /etc/cups/ppd/
+
+RUN chmod 640 /etc/cups/ppd/TM-T88V.ppd && \
+    chgrp lp /etc/cups/ppd/TM-T88V.ppd
 
 RUN dpkg -i /pcs-3.17.0.0-1.amd64.deb /tmx-cups-backend-1.2.4.0-1.amd64.deb /tmx-cups_1.2.2-1_amd64.deb
 RUN mkdir -p /usr/share/ppd/Epson && \
@@ -51,4 +57,9 @@ RUN /usr/sbin/cupsd \
   && cupsctl --remote-admin --remote-any --share-printers \
   && kill $(cat /var/run/cups/cupsd.pid)
 
-CMD ["/usr/sbin/cupsd", "-f"]
+RUN sed -i 's/631/9631/g' /etc/cups/cupsd.conf
+
+#CMD ["/usr/sbin/cupsd", "-f"]
+COPY ./entrypoint.sh .
+RUN chmod 755 entrypoint.sh
+ENTRYPOINT ./entrypoint.sh
