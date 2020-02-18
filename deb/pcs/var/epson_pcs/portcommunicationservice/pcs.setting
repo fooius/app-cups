@@ -1,7 +1,0 @@
-<xmlroot>
-<property id="TCP_COMMUNICATION" valuetype="string" value="Enable"/>
-<property id="TCP_COMMUNICATION_PORT" valuetype="number" value="2291"/>
-<property id="VERSION_NUMBER" valuetype="number" value="51445760"/>
-<property id="NONUSE_PCS_PARALLEL_DRIVER" valuetype="number" value="0"/>
-<property id="DEFAULT_PORTCONNECTOR" valuetype="string" value="/opt/epson_pcs/portcommunicationservice/libportconnector31.so"/>
-</xmlroot>

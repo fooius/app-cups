@@ -1,9 +1,0 @@
-Package: epson-port-communication-service
-Version: 3.17.0.0-1
-Priority: optional
-Architecture: amd64
-Section: non-free/text
-Depends:
-Maintainer: SEIKO EPSON CORPORATION <http://www.epson.com>
-Description: EPSON Port Communication Service
-

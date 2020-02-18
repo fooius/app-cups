@@ -1,5 +1,0 @@
-# libusb device access
-SUBSYSTEM=="usb_device", ACTION=="add", RUN+="/usr/bin/killall -sUSR1 portcommunicationserviced"
-SUBSYSTEM=="usb_device", ACTION=="remove", RUN+="/usr/bin/killall -sUSR2 portcommunicationserviced"
-SUBSYSTEM=="usb", ACTION=="add", ENV{DEVTYPE}=="usb_device", RUN+="/usr/bin/killall -sUSR1 portcommunicationserviced"
-SUBSYSTEM=="usb", ACTION=="remove", ENV{DEVTYPE}=="usb_device", RUN+="/usr/bin/killall -sUSR2 portcommunicationserviced"
