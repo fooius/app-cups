@@ -1,0 +1,21 @@
+<xmlroot>
+
+<type value="43">
+  <type value="TM-J2000">
+    <property id="TM-J2100">
+  </type>
+</type>
+
+<type value="67">
+  <type value="TM-J7000">
+    <property id="TM-J7100">
+  </type>
+</type>
+
+<type value="71">
+  <type value="TM-J7500">
+    <property id="TM-J7600">
+  </type>
+</type>
+
+</xmlroot>

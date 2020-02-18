@@ -1,0 +1,133 @@
+<xmlroot>
+	<type value="PortType">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="list" valuetype="string" value="1/2/3/4/5/6">
+	</type>
+	<type value="PortName">
+		<property id="valuetype" valuetype="string" value="string"/>
+	</type>
+	<type value="NICMACAddress">
+		<property id="valuetype" valuetype="string" value="string"/>
+	</type>
+	<type value="DeviceType">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="list" valuetype="string" value="0/1/2">
+	</type>
+	<type value="DeviceID">
+		<property id="valuetype" valuetype="string" value="number"/>
+	</type>
+	<type value="ModelName">
+		<property id="valuetype" valuetype="string" value="string"/>
+	</type>
+	<type value="BaudRate">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="38400"/>
+		<property id="list" valuetype="string" value="1200/2400/4800/9600/19200/38400/57600/115200">
+	</type>
+	<type value="BaudRate.RP">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="9600"/>
+		<property id="list" valuetype="string" value="9600/19200">
+	</type>
+	<type value="DataBit">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="8"/>
+		<property id="list" valuetype="string" value="8">
+	</type>
+	<type value="Parity">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="0"/>
+		<property id="list" valuetype="string" value="0/1/2">
+	</type>
+	<type value="StopBits">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="1"/>
+		<property id="list" valuetype="string" value="1/2">
+	</type>
+	<type value="FlowControl">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="3"/>
+		<property id="list" valuetype="string" value="0/1/2/3">
+	</type>
+	<type value="FlowControl.DM">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="3"/>
+		<property id="list" valuetype="string" value="0/1/2/3">
+	</type>
+	<type value="MonitorInterval">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="3000"/>
+		<property id="min" valuetype="number" value="100"/>
+		<property id="max" valuetype="number" value="180000"/>
+	</type>
+	<type value="MonitorTimeout">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="2000"/>
+		<property id="min" valuetype="number" value="100"/>
+		<property id="max" valuetype="number" value="10000"/>
+	</type>
+	<type value="WiredOffCount">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="3"/>
+		<property id="min" valuetype="number" value="0"/>
+		<property id="max" valuetype="number" value="10"/>
+	</type>
+	<type value="WiredOfflineCount">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="1"/>
+		<property id="min" valuetype="number" value="0"/>
+		<property id="max" valuetype="number" value="10"/>
+	</type>
+	<type value="WirelessOffCount">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="3"/>
+		<property id="min" valuetype="number" value="1"/>
+		<property id="max" valuetype="number" value="10"/>
+	</type>
+	<type value="WirelessOfflineCount">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="1"/>
+		<property id="min" valuetype="number" value="0"/>
+		<property id="max" valuetype="number" value="10"/>
+	</type>
+	<type value="PowerOffMonitorTimeout">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="2000"/>
+		<property id="min" valuetype="number" value="100"/>
+		<property id="max" valuetype="number" value="10000"/>
+	</type>
+	<type value="PowerOffMonitorRetryCount">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="3"/>
+		<property id="min" valuetype="number" value="1"/>
+		<property id="max" valuetype="number" value="10"/>
+	</type>
+	<type value="PowerOffMonitorInterval">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="1000"/>
+		<property id="min" valuetype="number" value="100"/>
+		<property id="max" valuetype="number" value="10000"/>
+	</type>
+	<type value="BtOpenRetryTime">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="7000"/>
+		<property id="min" valuetype="number" value="0"/>
+		<property id="max" valuetype="number" value="20000"/>
+	</type>
+	<type value="KeepaliveEnable">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="0"/>
+		<property id="list" valuetype="string" value="0/1">
+	</type>
+	<type value="KeepaliveInterval">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="3000"/>
+		<property id="min" valuetype="number" value="1000"/>
+		<property id="max" valuetype="number" value="120000"/>
+	</type>
+	<type value="UseGetCount">
+		<property id="valuetype" valuetype="string" value="number"/>
+		<property id="default" valuetype="number" value="1"/>
+		<property id="list" valuetype="string" value="0/1">
+	</type>
+</xmlroot>

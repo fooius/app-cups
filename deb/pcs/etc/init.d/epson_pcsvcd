@@ -1,0 +1,48 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:          epson_pcsvcd
+# Required-Start:    
+# Required-Stop:     
+# Should-Start:      
+# Should-Stop:       
+# X-Start-Before:    
+# X-Stop-After:      
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: EPSON Port Communication Service
+### END INIT INFO
+
+# export PCS_SETTING_DIR=
+# export PCS_INSTALL_DIR=
+
+PCSVCD_BIN=/usr/sbin/portcommunicationserviced
+DESC="EPSON Port Communication Service"
+SCRIPT=epson_pcsvcd
+
+test -x $PCSVCD_BIN || exit 0
+
+. /lib/lsb/init-functions
+
+case "$1" in
+  start)
+	log_begin_msg "Starting $DESC"	
+	start-stop-daemon --start --quiet --oknodo  --exec $PCSVCD_BIN 
+	log_end_msg $?
+	;;
+  stop)
+	log_begin_msg "Stopping $DESC"	
+	start-stop-daemon --stop --quiet --retry 5  --oknodo --exec $PCSVCD_BIN 
+	log_end_msg $?	
+	;;
+  restart)
+	/etc/init.d/$SCRIPT stop
+ 	/etc/init.d/$SCRIPT start
+	;;
+  *)
+	N=/etc/init.d/${0##*/}
+	echo "Usage: $N {start|stop|restart}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

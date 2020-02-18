@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+  app-cups:
+    image: fooius/app-cups:0.1
+    build:
+      context: .
+    network_mode: host
+    privileged: true
+    devices:
+      - /dev/bus
+    ports:
+      - '631:631'
+#    volumes:
+#      - /var/run/dbus
+#    expose:
+#      - "631"
+#      - "631/tcp"
+#      - "631/udp"
