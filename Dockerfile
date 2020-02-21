@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:sid
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -25,8 +25,14 @@ RUN apt-get -y update \
         hplip \
         smbclient \
         usbutils \
+        avahi-daemon \
+        avahi-daemon \
+        avahi-utils \
+        libnss-mdns \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+
 
 RUN useradd \
       --groups=sudo,lp,lpadmin \
@@ -42,9 +48,16 @@ COPY deb/tmx-cups_1.2.2-1_amd64.deb /
 COPY rootfs/usr/share/ppd/Epson/tm-* /usr/share/ppd/Epson/
 COPY rootfs/etc/cups/printers.conf /etc/cups/
 COPY rootfs/etc/cups/ppd/TM-T88V.ppd /etc/cups/ppd/
+COPY rootfs/etc/cups/ppd/test.ppd /etc/cups/ppd/
+COPY rootfs/etc/cups/printers.conf /etc/cups/
+COPY rootfs/etc/cups/cups-browsed.conf /etc/cups/
+COPY rootfs/etc/cups/cupsd.conf /etc/cups/
 
 RUN chmod 640 /etc/cups/ppd/TM-T88V.ppd \
     && chgrp lp /etc/cups/ppd/TM-T88V.ppd
+
+RUN chmod 640 /etc/cups/ppd/test.ppd \
+    && chgrp lp /etc/cups/ppd/test.ppd
 
 RUN dpkg -i \
       /pcs-3.17.0.0-1.amd64.deb \
@@ -56,7 +69,7 @@ RUN /usr/sbin/cupsd \
     && cupsctl --remote-admin --remote-any --share-printers \
     && kill $(cat /var/run/cups/cupsd.pid)
 
-RUN sed -i 's/631/9631/g' /etc/cups/cupsd.conf
+#RUN sed -i 's/631/9631/g' /etc/cups/cupsd.conf
 
 #CMD ["/usr/sbin/cupsd", "-f"]
 COPY ./entrypoint.sh .

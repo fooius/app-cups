@@ -2,11 +2,13 @@ version: '3.4'
 
 services:
   app-cups:
-    image: fooius/app-cups:0.8
+    image: fooius/app-cups:sid
     build:
       context: .
     network_mode: host
     devices:
       - /dev/bus
+    volumes:
+      - /var/run/dbus:/var/run/dbus
     ports:
       - '631:631'
